@@ -1,16 +1,16 @@
 # 1) Найти минимальное число в списке (можно создать любой список чисел)
 
-listOfNumbers = [3,2,3,1,5,6,0,10, 1.2, -1]
+listOfNumbers = [3,2,3,12,5,6,10, 1.2,]
 
 # через функцию min
-print(min(listOfNumbers))
+print('Минимальное число в списке через min: ', min(listOfNumbers))
 
 # через перебор значений
 minNumber = listOfNumbers[0]
 for i in listOfNumbers:
     if i < minNumber:
         minNumber = i
-print(minNumber)
+print('Минимальное число в списке через перебор: ', minNumber)
 
 # Не понял как сделать тоже самое через list comprehension. Ругается на minNumber=i, но не понимаю как это написать по-другому
 # print([minNumber=i for i in listOfNumbers if i < minNumber])
@@ -22,15 +22,14 @@ counter = 0
 for i in text:
     if i.isdigit():
           counter += 1
-print(counter)
+print('Количество цифр в строке:', text, '= ', counter)
 
 
 # 3) Вычислить факториал числа
-x = 5
+x = int(input('Введите число: '))
 f = 1
 i = 1
 while i < x:
     f = f * (i+1)
     i += 1
-print(f)
-
+print('! ',x, '= ', f)
