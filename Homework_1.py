@@ -8,14 +8,14 @@ if numbers:
     print('Минимальное число в списке через min: ', min(numbers))
 
 # через перебор значений
-    minNumber = numbers[0]
+    min_number = numbers[0]
     for i in numbers:
-        if i < minNumber:
-            minNumber = i
-    print('Минимальное число в списке через перебор: ', minNumber)
+        if i < min_number:
+            min_number = i
+    print('Минимальное число в списке через перебор: ', min_number)
 
-# Не понял как сделать тоже самое через list comprehension. Ругается на minNumber=i, но не понимаю как это написать по-другому
-# print([minNumber=i for i in numbers if i < minNumber])
+# Не понял как сделать тоже самое через list comprehension. Ругается на min_number=i, но не понимаю как это написать по-другому
+# print([min_number=i for i in numbers if i < min_number])
 
 
 # 2) Посчитать количество цифр в строке (например в такой "Сегодня 05.09.2025") - в питоне есть метод для проверки на число isdigit() он тебе поможет)
