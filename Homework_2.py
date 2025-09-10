@@ -6,17 +6,11 @@
 # # Если пароль содержит хотя бы одну цифру — выведи "Пароль содержит цифры".
 # # Сделай пароль полностью заглавными буквами и выведи результат.
 
-password = input('Введите пароль:')
-# password = (password.replace(' ', ''))
-password = password.strip()
+password = input('Введите пароль:').strip()
 digit = False
-for char in password:
-    if char.isdigit():
-        digit = True
+if any(char.isdigit() for char in password): print("Пароль содержит цифры")
 
-if digit:
-    print('Пароль содержит цифры')
-elif len(password) < 7:
+elif len(password) < 8:
     print('Пароль слишком короткий')
 else:
     print(password.upper())
@@ -28,12 +22,10 @@ else:
 # Выведи дату в формате "DD.MM.YYYY".
 
 date = '2025098'
-year = date[:4:]
+year = date[:4]
 month = date[4:6]
-day = date[6:8]
+day = date[6:8].zfill(2)
 
-if len(day) < 2:
-    day = '0' + day
 
 print(f'{day}.{month}.{year}')
 
@@ -47,8 +39,8 @@ print(f'{day}.{month}.{year}')
 
 string = "Python is fun and Python is python powerful"
 count_of_Python = 0
-for word in (string.split(' ')):
-    if word == 'Python' or word == 'python':
+for word in (string.split()):
+    if word.lower() == 'python':
         count_of_Python += 1
 if count_of_Python > 1:
     print('Python встречается часто')
