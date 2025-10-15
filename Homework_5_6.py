@@ -24,7 +24,15 @@
 class Vehicle:
     def __init__(self, brand, speed):
        self._brand = brand
-       self._speed = speed
+       self.speed = speed
+
+    def __len__(self):
+        return 1
+
+    def __str__(self):
+        return f'{self.__class__.__name__} "Брэнд": {self._brand}'
+
+
 
     @property
     def brand(self):
@@ -42,30 +50,30 @@ class Vehicle:
             self._speed = speed
 
     def get_info(self):
-        return f'Бренд: {self.brand}, Скорость: {self.speed}'
-
-
+        return f'Бренд: {self.brand}, Скорость: {self.speed}\n'
 class Car(Vehicle):
     def __init__(self, brand, speed, seats):
-        self.seats = seats
         super().__init__(brand, speed)
+        self.seats = seats
+
 
     def get_info(self):
         return f'Бренд: {self.brand}\nСкорость: {self.speed}\nКоличество мест: {self.seats}'
 
-    @staticmethod
+
     def trip_cost(distance):
-        return f'Стоимость поездки: {distance * 0.1}\n'
+        return distance * 0.1
 
 
 class Bus(Vehicle):
     def __init__(self, brand, speed, capacity):
-        self.capacity = capacity
         super().__init__(brand, speed)
+        self.capacity = capacity
+
 
 
     def trip_cost(self,distance):
-        return f'Стоимость поездки: {distance * 0.05 * self.capacity}\n'
+        return distance * 0.05 * self.capacity
 
     def get_info(self):
         return f'Бренд: {self.brand}\nСкорость: {self.speed}\nВместимость пассажиров: {self.capacity}'
@@ -73,10 +81,11 @@ class Bus(Vehicle):
 
 class Bike(Vehicle):
     def __init__(self, brand, speed, bike_type):
-        self.bike_type = bike_type
         super().__init__(brand, speed)
+        self.bike_type = bike_type
 
-    @staticmethod
+
+
     def trip_cost(distance):
         return f'Стоимость поездки: 0\n'
 
@@ -98,3 +107,8 @@ vehicle_list = [
 for vehicle in vehicle_list:
    print(vehicle.get_info())
    print(vehicle.trip_cost(100))
+
+print(len(vehicle_list[0]))
+print(vehicle_list[0])
+
+

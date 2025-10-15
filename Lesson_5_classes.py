@@ -80,3 +80,5 @@ class Helper():
 
 Helper.plus()
 
+a = [1, 2, 3]
+print(len(a))
